@@ -1,4 +1,4 @@
-package Enumerate;
+package enumerate;
 
 public enum StatusResponse {
     SUCCESS("Success"), ERROR("Error");

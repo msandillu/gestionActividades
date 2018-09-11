@@ -1,4 +1,4 @@
-import controllers.TareaController;
+import controllers.TaskController;
 import spark.Spark;
 
 
@@ -8,8 +8,8 @@ public class main {
     public static void main(String[] args) {
         Spark.port(8081);
 
-        TareaController tareaController = new TareaController();
+        TaskController taskController = new TaskController();
 
-        tareaController.setup();
+        taskController.setup();
     }
 }

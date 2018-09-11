@@ -1,6 +1,6 @@
-package daos;
+package model;
 
-import Enumerate.StatusResponse;
+import enumerate.StatusResponse;
 import com.google.gson.JsonElement;
 
 public class StandardResponse {
