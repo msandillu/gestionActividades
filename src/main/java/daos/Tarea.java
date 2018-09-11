@@ -22,12 +22,12 @@ public class Tarea {
     @Column(name = "DESCRIPCION", nullable = false, length = 100)
     private String descripcion;
 
-    private Usuario usuarioCreacion;
+    private Integer usuarioCreacion;
 
     @Column(name = "FECHACREACION")
     private Date fechaCreacion;
 
-    public Tarea(Integer id, String nombre, String descripcion, Usuario usuarioCreacion, Date fechaCreacion) {
+    public Tarea(Integer id, String nombre, String descripcion, Integer usuarioCreacion, Date fechaCreacion) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -59,11 +59,11 @@ public class Tarea {
         this.descripcion = descripcion;
     }
 
-    public Usuario getUsuarioCreacion() {
+    public Integer getUsuarioCreacion() {
         return this.usuarioCreacion;
     }
 
-    public void setUsuarioCreacion(Usuario usuarioCreacion) {
+    public void setUsuarioCreacion(Integer usuarioCreacion) {
         this.usuarioCreacion = usuarioCreacion;
     }
 

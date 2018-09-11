@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="faaf1044-eb96-4375-9cc6-74e467464636" name="Default Changelist" comment="" />
+    <list default="true" id="faaf1044-eb96-4375-9cc6-74e467464636" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -196,6 +198,9 @@
       <replace />
     </replaceStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -226,6 +231,7 @@
     <option name="width" value="1920" />
     <option name="height" value="1082" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -320,7 +326,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536673022883" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536675393409" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -373,12 +379,12 @@
       <workItem from="1536336966781" duration="10050000" />
       <workItem from="1536350565052" duration="19000" />
       <workItem from="1536577693353" duration="26759000" />
-      <workItem from="1536662714894" duration="5984000" />
+      <workItem from="1536662714894" duration="6640000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42812000" />
+    <option name="totallyTimeSpent" value="43468000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -397,7 +403,7 @@
       <window_info id="Capture Tool" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.20330843" />
+      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.20330843" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Spring" order="0" />
@@ -408,7 +414,7 @@
       <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.50213444" side_tool="true" weight="0.28301886" />
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="bottom" id="Find" order="7" />
-      <window_info anchor="bottom" id="Run" order="8" sideWeight="0.49786553" visible="true" weight="0.28301886" />
+      <window_info active="true" anchor="bottom" id="Run" order="8" sideWeight="0.49786553" visible="true" weight="0.28361344" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Debug" order="10" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
