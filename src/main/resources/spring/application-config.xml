@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <context:component-scan base-package="com.prueba.administradortarea"/>
+
+    <!-- Factories -->
+    <bean id="objectMapper" class="com.fasterxml.jackson.databind.ObjectMapper"/>
+
+    <!-- Parsers -->
+    <bean id="jsonParser" class="com.prueba.administradortarea.parsers.JacksonJsonParser">
+        <constructor-arg ref="objectMapper"/>
+    </bean>
+
+    <!-- Validators -->
+    <bean id="validationBootstrap" class="javax.validation.Validation$GenericBootstrapImpl"/>
+    <bean id="validatorConfig" factory-bean="validationBootstrap" factory-method="configure"/>
+    <bean id="validatorFactory" factory-bean="validatorConfig" factory-method="buildValidatorFactory"/>
+    <bean id="validator" factory-bean="validatorFactory" factory-method="getValidator"/>
+
+    <!-- Controllers -->
+    <bean id="taskController" class="com.prueba.administradortarea.controllers.TaskController">
+        <constructor-arg ref="taskService"/>
+        <constructor-arg ref="jsonParser"/>
+        <constructor-arg ref="validator"/>
+    </bean>
+
+    <!-- Services -->
+    <bean id="taskService"
+          class="com.prueba.administradortarea.services.TaskServiceImpl"
+          lazy-init="true">
+        <!--<constructor-arg ref="bufferTaskRepository"/> -->
+    </bean>
+
+    <!-- Repositories -->
+   <!-- <bean id="bufferTaskRepository" class="com.prueba.administradortarea.repositories.BaseDataPersistenceRepository">
+        <constructor-arg name="sessionFactory"
+                         ref="#{ '${scope}'.contains('beta')?'betaInternalSessionFactory':'internalSessionFactory'}"/>
+    </bean> -->
+
+</beans>

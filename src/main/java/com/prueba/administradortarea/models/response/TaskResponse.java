@@ -1,39 +1,25 @@
-package model;
+package com.prueba.administradortarea.models.response;
 
-
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.util.Date;
 
-@Entity
-public class Task {
+public class TaskResponse {
 
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID", columnDefinition = "NUMERIC(19,0)")
     private Integer id;
-
-    @NotNull
-    @Column(name = "NAME", nullable = false, length = 100)
     private String name;
-
-    @NotNull
-    @Column(name = "DESCRIPTION", nullable = false, length = 100)
     private String description;
-
     private Integer creationUser;
-
-    @Column(name = "CREATIONDATE")
     private Date creationDate;
 
-    public Task(@NotNull String name, @NotNull String description, Integer creationUser, Date creationDate) {
+    public TaskResponse(){
+    }
+
+    public TaskResponse(Integer id, String name, String description, Integer creationUser, Date creationDate) {
+        this.id = id;
         this.name = name;
         this.description = description;
         this.creationUser = creationUser;
         this.creationDate = creationDate;
     }
-
 
     public Integer getId() {
         return id;
@@ -74,6 +60,5 @@ public class Task {
     public void setCreationDate(Date creationDate) {
         this.creationDate = creationDate;
     }
-
 
 }
