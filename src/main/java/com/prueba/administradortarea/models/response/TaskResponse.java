@@ -1,5 +1,7 @@
 package com.prueba.administradortarea.models.response;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class TaskResponse {
@@ -8,6 +10,8 @@ public class TaskResponse {
     private String name;
     private String description;
     private Integer creationUser;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
     private Date creationDate;
 
     public TaskResponse(){
