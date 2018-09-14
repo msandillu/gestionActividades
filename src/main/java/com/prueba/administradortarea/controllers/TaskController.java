@@ -1,6 +1,8 @@
 package com.prueba.administradortarea.controllers;
 
+import com.prueba.administradortarea.exception.ApiException;
 import com.prueba.administradortarea.models.request.TaskRequest;
+import com.prueba.administradortarea.models.response.TaskResponse;
 import com.prueba.administradortarea.parsers.Parser;
 import com.prueba.administradortarea.services.TaskService;
 import org.eclipse.jetty.http.HttpStatus;
@@ -11,7 +13,9 @@ import spark.Route;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 
@@ -28,6 +32,8 @@ public class TaskController {
     }
 
     public Route postTasks = this::postTasks;
+    public Route getTasks = this::getTasks;
+    public Route getTasksById = this::getTasksById;
 
 
     private String postTasks(Request request, Response response) throws IOException {
@@ -37,26 +43,48 @@ public class TaskController {
         Set<ConstraintViolation<TaskRequest>> validationResult = validator.validate(taskRequest);
 
         if (!validationResult.isEmpty()) {
+
+            List<ApiException> exceptions = new ArrayList<ApiException>();
+            for (ConstraintViolation cv : validationResult){
+                ApiException apiException = new ApiException();
+                apiException.setDescription(cv.getMessage());
+                exceptions.add(apiException);
+            }
+
             response.status(HttpStatus.BAD_REQUEST_400);
-
-            //TODO: Agregar la LÓGICA para mostrar EXcepciones
-
-
+            return parser.parseToString(exceptions);
         }
 
         response.status(HttpStatus.CREATED_201);
         Integer taskId = taskService.createTask(taskRequest);
-
         return parser.parseToString(taskService.findTask(taskId));
     };
 
-   /* get("/tasks", (request, response) -> {
+    private String getTasks(Request request, Response response) throws IOException {
+        response.type("application/json");
+        response.status(HttpStatus.OK_200);
+        return parser.parseToString(taskService.getTask());
+    };
+
+    private String getTasksById(Request request, Response response) throws IOException {
         response.type("application/json");
 
-        response.status(HttpStatus.OK_200);
+        Integer taskId = Integer.parseInt(request.params(":id"));
+        TaskResponse taskResponse = null;
 
-        return new ObjectMapper().writeValueAsString(taskService.getTask());
-    }); */
+        if (taskId != null){
+            taskResponse = taskService.findTask(taskId);
+        }
+        if (taskResponse == null){
+            response.status(HttpStatus.NOT_FOUND_404);
+            ApiException apiException = new ApiException();
+            apiException.setDescription("Not found the Task");
+            return parser.parseToString(apiException);
+        }
+
+        response.status(HttpStatus.OK_200);
+        return parser.parseToString(taskResponse);
+    };
 
    /* get("/tasks/:id", (request, response) -> {
         response.type("application/json");

@@ -6,8 +6,7 @@ import com.prueba.administradortarea.models.response.TaskResponse;
 import com.prueba.administradortarea.repositories.DataPersistenceRepository;
 import com.prueba.administradortarea.repositories.InternalDataRepository;
 
-import java.util.Date;
-import java.util.HashMap;
+import java.util.*;
 
 
 public class TaskServiceImpl implements TaskService {
@@ -25,22 +24,50 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     public Integer createTask(TaskRequest taskRequest) {
-        Task task = new Task(taskRequest.getName(), taskRequest.getDescription(), 2020, new Date());
+        Task task = new Task();
+        task.setId(taskMap.size()+1);
+        task.setName(taskRequest.getName());
+        task.setDescription(taskRequest.getDescription());
+        task.setCreationUser(null);
+        task.setCreationDate(new Date());
         //bufferTaskRepository.add(task);
         taskMap.put(task.getId(), task);
         return task.getId();
     }
 
     @Override
-    public TaskResponse findTask(Integer id) {
-        Task task = taskMap.get(id);
-        return new TaskResponse(task.getId(), task.getName(), task.getDescription(), task.getCreationUser(), task.getCreationDate());
+    public Collection<TaskResponse> getTask() {
+        HashMap<Integer, TaskResponse> taskResponseMap = new HashMap<>();
+        Iterator it = taskMap.entrySet().iterator();
+        while (it.hasNext()){
+            Map.Entry taskEntry = (Map.Entry) it.next();
+            Task task = (Task) taskEntry.getValue();
+            taskResponseMap.put(task.getId(),getTaskResponse(task));
+        }
+        return taskResponseMap.values();
     }
 
-    /*@Override
-    public Collection<Task> getTask() {
-        return taskMap.values();
+    @Override
+    public TaskResponse findTask(Integer id) {
+        Task task = taskMap.get(id);
+        if (task != null){
+            return getTaskResponse(task);
+        } else{
+            return null;
+        }
     }
+
+    private TaskResponse getTaskResponse(Task task){
+        TaskResponse taskResponse = new TaskResponse();
+        taskResponse.setId(task.getId());
+        taskResponse.setName(task.getName());
+        taskResponse.setDescription(task.getDescription());
+        taskResponse.setCreationUser(task.getCreationUser());
+        taskResponse.setCreationDate(task.getCreationDate());
+        return taskResponse;
+    }
+
+    /*
 
     @Override
     public Task editTask(Task forEdit) {

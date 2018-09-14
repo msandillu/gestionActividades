@@ -27,6 +27,14 @@ public class Router implements SparkApplication {
         Spark.path("/api", () -> {
             Spark.post("/tasks", taskController.postTasks);
         });
+
+        Spark.path("/api", () -> {
+            Spark.get("/tasks", taskController.getTasks);
+        });
+
+        Spark.path("/api", () -> {
+            Spark.get("/tasks/:id", taskController.getTasksById);
+        });
     }
 
     @Override

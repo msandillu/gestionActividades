@@ -29,6 +29,9 @@ public class Task {
     @Column(name = "CREATIONDATE")
     private Date creationDate;
 
+    public Task(){
+    }
+
     public Task(@NotNull String name, @NotNull String description, Integer creationUser, Date creationDate) {
         this.name = name;
         this.description = description;
