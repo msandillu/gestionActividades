@@ -37,7 +37,7 @@
         <constructor-arg name="sessionFactory" ref="hibernate3AnnotatedSessionFactory"/>
     </bean>
 
-
+    <!--MySQL -->
     <bean id="hibernate3AnnotatedSessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
         <property name="annotatedClasses">
@@ -54,9 +54,6 @@
             </props>
         </property>
     </bean>
-
-
-    <!--Hibernate -->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
           destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
@@ -66,11 +63,28 @@
     </bean>
 
     <!-- H2 -->
-    <!--<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+    <bean id="h2AnnotatedSessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSourceH2" />
+        <property name="annotatedClasses">
+            <list>
+                <value>com.prueba.administradortarea.models.domain.Task</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop>
+                <prop key="hibernate.current_session_context_class">thread</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.hbm2ddl.auto">create-drop</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="dataSourceH2" class="org.apache.commons.dbcp.BasicDataSource"
           destroy-method="close">
         <property name="driverClassName" value="org.h2.Driver" />
         <property name="url" value="jdbc:h2:/home/msandillu/Documents/administrador-tareas/h2/test" />
         <property name="username" value="sa" />
         <property name="password" value="sa" />
-    </bean>-->
+    </bean>
+
 </beans>
