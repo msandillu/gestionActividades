@@ -44,11 +44,22 @@ public class TaskRepositoryImpl implements TaskRepository {
 
     @Override
     public void remove(Task task) {
-        Session session = getSessionFactory().openSession();
-        Transaction tx = session.beginTransaction();
-        session.delete(task);
-        tx.commit();
-        session.close();
+        Session session = null;
+        Transaction tx = null;
+        try {
+            session = getSessionFactory().openSession();
+            tx = session.beginTransaction();
+            session.delete(task);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (tx != null && tx.isActive()){
+                tx.commit();
+            }
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
     }
 
     @Override
