@@ -16,7 +16,7 @@ public class main {
     }
 
     public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, IOException, SQLException {
-        new InitialDataBase().crearDB(false);
+        new InitialDataBase().crearDB();
         Spark.port(port);
         new Router().init();
     }

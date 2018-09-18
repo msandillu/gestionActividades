@@ -30,22 +30,12 @@ public class InitialDataBase {
     }
 
 
-    public void crearDB(Boolean useH2) throws ClassNotFoundException, InstantiationException, IllegalAccessException, IOException, SQLException {
+    public void crearDB() throws ClassNotFoundException, InstantiationException, IllegalAccessException, IOException, SQLException {
         //ejecutamos los scripts de eliminacion y creacion de la BD
-        String deleteTables = null;
-        String createTables = null;
-        Connection con = null;
-        if (useH2){
-            deleteTables = this.leerSqlFile("src/main/java/com/prueba/administradortarea/query/deletebdh2.sql");
-            createTables = this.leerSqlFile("src/main/java/com/prueba/administradortarea/query/createbdh2.sql");
-            Class.forName("org.h2.Driver").newInstance();
-            con = DriverManager.getConnection("jdbc:h2:/home/msandillu/Documents/administrador-tareas/h2/test", "sa", "sa");
-        } else{
-            deleteTables = this.leerSqlFile("src/main/java/com/prueba/administradortarea/query/deletebd.sql");
-            createTables = this.leerSqlFile("src/main/java/com/prueba/administradortarea/query/createbd.sql");
-            Class.forName("com.mysql.jdbc.Driver").newInstance();
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sys", "root", "");
-        }
+        String deleteTables = this.leerSqlFile("src/main/java/com/prueba/administradortarea/query/deletebd.sql");
+        String createTables = this.leerSqlFile("src/main/java/com/prueba/administradortarea/query/createbd.sql");
+        Class.forName("com.mysql.jdbc.Driver").newInstance();
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sys", "root", "");
         java.sql.Statement stm = con.createStatement();
         stm.execute(deleteTables);
         stm.execute(createTables);

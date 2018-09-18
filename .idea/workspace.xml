@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="faaf1044-eb96-4375-9cc6-74e467464636" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/prueba/administradortarea/query/createbdh2.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/prueba/administradortarea/query/deletebdh2.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/prueba/administradortarea/initialbd/InitialDataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prueba/administradortarea/initialbd/InitialDataBase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/prueba/administradortarea/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/prueba/administradortarea/main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/prueba/administradortarea/query/createbdh2.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/prueba/administradortarea/query/deletebdh2.sql" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/spring/application-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/spring/application-config.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -57,20 +57,20 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="55" />
-          <entry key="java" value="6158" />
+          <entry key="java" value="6178" />
           <entry key="properties" value="13" />
           <entry key="sql" value="154" />
           <entry key="txt" value="12" />
-          <entry key="xml" value="864" />
+          <entry key="xml" value="893" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="6158" />
+          <entry key="JAVA" value="6178" />
           <entry key="PLAIN_TEXT" value="67" />
           <entry key="Properties" value="13" />
           <entry key="SQL" value="154" />
-          <entry key="XML" value="864" />
+          <entry key="XML" value="893" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -80,7 +80,7 @@
           <entry key="java" value="145" />
           <entry key="properties" value="7" />
           <entry key="sql" value="6" />
-          <entry key="xml" value="26" />
+          <entry key="xml" value="27" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -90,7 +90,7 @@
           <entry key="JAVA" value="145" />
           <entry key="Properties" value="7" />
           <entry key="SQL" value="6" />
-          <entry key="XML" value="26" />
+          <entry key="XML" value="27" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
@@ -104,11 +104,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/prueba/administradortarea/main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" selection-start-line="21" selection-end-line="21" />
+            <state relative-caret-position="180">
+              <caret line="12" column="35" lean-forward="true" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -119,8 +119,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/prueba/administradortarea/controllers/TaskController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="65" selection-start-line="65" selection-end-line="65" />
+            <state relative-caret-position="190">
+              <caret line="63" selection-start-line="63" selection-end-line="63" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -131,8 +131,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/prueba/administradortarea/initialbd/InitialDataBase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="34" selection-start-line="34" selection-end-line="34" />
+            <state relative-caret-position="366">
+              <caret line="32" column="24" lean-forward="true" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -140,7 +140,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/prueba/administradortarea/repositories/TaskRepositoryImpl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="225">
@@ -155,8 +155,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/prueba/administradortarea/services/TaskServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="25" column="32" lean-forward="true" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
+            <state relative-caret-position="475">
+              <caret line="50" selection-start-line="50" selection-end-line="50" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -185,17 +185,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/spring/application-config.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="36" column="45" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="45" />
+            <state relative-caret-position="362">
+              <caret line="71" column="78" lean-forward="true" selection-start-line="71" selection-start-column="78" selection-end-line="71" selection-end-column="78" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/prueba/administradortarea/query/createbdh2.sql">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="39" lean-forward="true" selection-start-line="1" selection-start-column="39" selection-end-line="1" selection-end-column="39" />
+            <state relative-caret-position="345">
+              <caret line="113" column="35" selection-start-line="113" selection-start-column="25" selection-end-line="113" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -297,12 +297,12 @@
         <option value="$PROJECT_DIR$/src/main/java/com/prueba/administradortarea/services/TaskServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/prueba/administradortarea/repositories/TaskRepositoryImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/prueba/administradortarea/query/deletebd.sql" />
-        <option value="$PROJECT_DIR$/src/main/java/com/prueba/administradortarea/main.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/prueba/administradortarea/query/createbd.sql" />
         <option value="$PROJECT_DIR$/src/main/java/com/prueba/administradortarea/query/createbdh2.sql" />
         <option value="$PROJECT_DIR$/src/main/java/com/prueba/administradortarea/query/deletebdh2.sql" />
-        <option value="$PROJECT_DIR$/src/main/java/com/prueba/administradortarea/initialbd/InitialDataBase.java" />
         <option value="$PROJECT_DIR$/src/main/resources/spring/application-config.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/prueba/administradortarea/initialbd/InitialDataBase.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/prueba/administradortarea/main.java" />
       </list>
     </option>
   </component>
@@ -403,21 +403,6 @@
               <item name="administradortarea" type="462c0819:PsiDirectoryNode" />
               <item name="services" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="administradortareas" type="b2602c69:ProjectViewProjectNode" />
-              <item name="administrador-tareas" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="administradortareas" type="b2602c69:ProjectViewProjectNode" />
-              <item name="administrador-tareas" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="spring" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -433,7 +418,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537276035032" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537277230922" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -511,12 +496,12 @@
       <workItem from="1537142822764" duration="1559000" />
       <workItem from="1537182490803" duration="436000" />
       <workItem from="1537184212743" duration="24945000" />
-      <workItem from="1537266550397" duration="9291000" />
+      <workItem from="1537266550397" duration="10495000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="178213000" />
+    <option name="totallyTimeSpent" value="179417000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -548,12 +533,12 @@
       <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.5075099" side_tool="true" weight="0.58401304" />
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="bottom" id="Find" order="7" weight="0.32983193" />
-      <window_info anchor="bottom" id="Run" order="8" sideWeight="0.49519745" weight="0.26155463" />
+      <window_info anchor="bottom" id="Run" order="8" sideWeight="0.49519745" visible="true" weight="0.26155463" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="12" sideWeight="0.4994664" weight="0.32878152" />
-      <window_info anchor="bottom" id="Debug" order="13" sideWeight="0.4924901" visible="true" weight="0.34558824" />
+      <window_info anchor="bottom" id="Debug" order="13" sideWeight="0.4924901" weight="0.34558824" />
       <window_info anchor="right" id="Capture Analysis" order="0" />
       <window_info anchor="right" id="Theme Preview" order="1" />
       <window_info anchor="right" id="Palette&#9;" order="2" />
@@ -928,23 +913,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/prueba/administradortarea/main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="114" column="37" selection-start-line="114" selection-start-column="37" selection-end-line="114" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/prueba/administradortarea/query/deletebd.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -966,37 +934,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/prueba/administradortarea/initialbd/InitialDataBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/prueba/administradortarea/query/createbdh2.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="39" lean-forward="true" selection-start-line="1" selection-start-column="39" selection-end-line="1" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/application-config.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="36" column="45" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/prueba/administradortarea/controllers/TaskController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="65" selection-start-line="65" selection-end-line="65" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1014,16 +955,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/prueba/administradortarea/services/TaskServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="25" column="32" lean-forward="true" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/prueba/administradortarea/repositories/TaskRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -1038,6 +969,60 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="27" column="16" lean-forward="true" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="113" column="35" selection-start-line="113" selection-start-column="25" selection-end-line="113" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/application-config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="71" column="78" lean-forward="true" selection-start-line="71" selection-start-column="78" selection-end-line="71" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/prueba/administradortarea/controllers/TaskController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="63" selection-start-line="63" selection-end-line="63" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/prueba/administradortarea/services/TaskServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/prueba/administradortarea/initialbd/InitialDataBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="32" column="24" lean-forward="true" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/prueba/administradortarea/main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="35" lean-forward="true" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
