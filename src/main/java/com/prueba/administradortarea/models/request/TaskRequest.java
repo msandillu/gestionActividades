@@ -13,15 +13,13 @@ public class TaskRequest {
     @NotNull(message = "name is required")
     @JsonProperty("name")
     @Valid
-    @Size(max=100, message = "The length of the name is too long")
-    @Size(min=1, message = "The length of the name is too short")
+    @Size(max=100, min=1, message = "The length of the name is too long")
     private String name;
 
     @NotNull(message = "description is required")
     @JsonProperty("description")
     @Valid
-    @Size(max=100, message = "The length of the description is too long")
-    @Size(min=1, message = "The length of the description is too short")
+    @Size(max=100, min=1, message = "The length of the description is too long")
     private String description;
 
     public String getName() {

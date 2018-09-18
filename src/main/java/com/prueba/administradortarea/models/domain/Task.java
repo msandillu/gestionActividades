@@ -6,30 +6,30 @@ import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Entity
-@Table(name="TASK")
+@Table(name = "Task")
 public class Task {
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID", columnDefinition = "NUMERIC(19,0)")
+    @Column(name = "id", updatable = false, nullable = false)
     private Integer id;
 
     @NotNull
-    @Column(name = "NAME", nullable = false, length = 100)
+    @Column(name = "name", nullable = false, length = 100)
     private String name;
 
     @NotNull
-    @Column(name = "DESCRIPTION", nullable = false, length = 100)
+    @Column(name = "description", nullable = false, length = 100)
     private String description;
 
-    @Column(name = "CREATIONUSER")
+    @Column(name = "creationuser")
     private Integer creationUser;
 
-    @Column(name = "CREATIONDATE")
+    @Column(name = "creationdate")
     private Date creationDate;
 
-    public Task(){
+    public Task() {
     }
 
     public Task(@NotNull String name, @NotNull String description, Integer creationUser, Date creationDate) {

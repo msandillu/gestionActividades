@@ -3,53 +3,43 @@ package com.prueba.administradortarea.services;
 import com.prueba.administradortarea.models.domain.Task;
 import com.prueba.administradortarea.models.request.TaskRequest;
 import com.prueba.administradortarea.models.response.TaskResponse;
-import com.prueba.administradortarea.repositories.DataPersistenceRepository;
-import com.prueba.administradortarea.repositories.InternalDataRepository;
+import com.prueba.administradortarea.repositories.TaskRepository;
 
 import java.util.*;
 
 
 public class TaskServiceImpl implements TaskService {
 
-    //private DataPersistenceRepository bufferTaskRepository;
-    private HashMap<Integer, Task> taskMap;
+    private TaskRepository taskRepository;
 
-    public TaskServiceImpl() {
-        taskMap = new HashMap<>();
+    public TaskServiceImpl(TaskRepository taskRepository) {
+        this.taskRepository = taskRepository;
     }
-
-    /*public TaskServiceImpl(DataPersistenceRepository bufferTaskRepository) {
-        this.bufferTaskRepository = bufferTaskRepository;
-    }*/
 
     @Override
     public Integer createTask(TaskRequest taskRequest) {
         Task task = new Task();
-        task.setId(taskMap.size()+1);
         task.setName(taskRequest.getName());
         task.setDescription(taskRequest.getDescription());
         task.setCreationUser(null);
         task.setCreationDate(new Date());
-        //bufferTaskRepository.add(task);
-        taskMap.put(task.getId(), task);
+        task = taskRepository.add(task);
         return task.getId();
     }
 
     @Override
     public Collection<TaskResponse> getTask() {
         HashMap<Integer, TaskResponse> taskResponseMap = new HashMap<>();
-        Iterator it = taskMap.entrySet().iterator();
-        while (it.hasNext()){
-            Map.Entry taskEntry = (Map.Entry) it.next();
-            Task task = (Task) taskEntry.getValue();
-            taskResponseMap.put(task.getId(),getTaskResponse(task));
+        List<Task> taskList = taskRepository.findAll();
+        for (Task t : taskList){
+            taskResponseMap.put(t.getId(),getTaskResponse(t));
         }
         return taskResponseMap.values();
     }
 
     @Override
     public TaskResponse findTask(Integer id) {
-        Task task = taskMap.get(id);
+        Task task = taskRepository.findById(id);
         if (task != null){
             return getTaskResponse(task);
         } else{
