@@ -1,7 +1,7 @@
 package com.prueba.administradortarea.exception;
 
 
-public class ApiException extends Exception {
+public class ApiException  {
 
     private static final long serialVersionUID = 1L;
 
@@ -14,35 +14,29 @@ public class ApiException extends Exception {
 
 
     public ApiException(String code, String description) {
-        super(description);
         this.code = code;
         this.description = description;
     }
 
     public ApiException(String description) {
-        super(description);
         this.description = description;
     }
 
     public ApiException(String description, Throwable cause) {
-        super(description, cause);
         this.description = description;
     }
 
     public ApiException(String code, String description, Integer statusCode) {
-        super(description);
         this.code = code;
         this.description = description;
     }
 
     public ApiException(String code, String description, Throwable cause) {
-        super(description, cause);
         this.code = code;
         this.description = description;
     }
 
     public ApiException(String code, String description, Integer statusCode, Throwable cause) {
-        super(description, cause);
         this.code = code;
         this.description = description;
     }

@@ -50,3 +50,13 @@ target/classes/com/prueba/administradortarea/specifications/impl/RemoveByIdSpeci
 target/classes/com/prueba/administradortarea/specifications/Specification\.class
 
 \.idea/
+
+target/classes/com/prueba/administradortarea/models/domain/User\.class
+
+target/classes/com/prueba/administradortarea/services/UserService\.class
+
+target/classes/com/prueba/administradortarea/services/UserServiceImpl\.class
+
+target/classes/com/prueba/administradortarea/user/api/AuthenticationHandler\.class
+
+target/classes/com/prueba/administradortarea/user/api/AuthenticationHandlerImpl\.class
