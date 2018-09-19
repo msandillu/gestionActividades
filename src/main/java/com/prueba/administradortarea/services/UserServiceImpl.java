@@ -37,7 +37,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Boolean existUser(Integer idUser){
-        return findUser(idUser) != null ? Boolean.TRUE : Boolean.FALSE;
+        return findUser(idUser) != null;
     }
 
 }

@@ -11,10 +11,10 @@ import spark.Spark;
 import java.io.IOException;
 
 
-public class AuthenticationHandlerImpl implements AuthenticationHandler{
+public class AuthenticationHandlerImpl implements AuthenticationHandler {
 
-    UserService userService;
-    Parser parser;
+    private final UserService userService;
+    private final Parser parser;
 
     public AuthenticationHandlerImpl(UserService userService, Parser parser) {
         this.userService = userService;
@@ -26,31 +26,29 @@ public class AuthenticationHandlerImpl implements AuthenticationHandler{
 
         //Reviso si el Header viene el X-Caller-Id
         String userId = request.headers("X-Caller-Id");
-        if (userId == null){
-            response.status(HttpStatus.UNAUTHORIZED_401);
+        if (userId == null) {
             ApiException apiException = new ApiException();
             apiException.setDescription("Not found header X-Caller-Id");
-            Spark.halt(401, parser.parseToString(apiException));
+            Spark.halt(HttpStatus.UNAUTHORIZED_401, parser.parseToString(apiException));
         }
 
         //Reviso si obtengo un entero y si existe el usuario
         Integer userIdInt;
-        try{
+        try {
             userIdInt = Integer.parseInt(userId);
-        } catch (NumberFormatException excepcion){
+        } catch (NumberFormatException excepcion) {
             userIdInt = null;
         }
 
         Boolean existUser = false;
-        if (userIdInt != null){
+        if (userIdInt != null) {
             existUser = userService.existUser(userIdInt);
         }
 
-        if (userId == null || !existUser){
-            response.status(HttpStatus.UNAUTHORIZED_401);
+        if (userId == null || !existUser) {
             ApiException apiException = new ApiException();
             apiException.setDescription("Not found the User");
-            Spark.halt(401, parser.parseToString(apiException));
+            Spark.halt(HttpStatus.UNAUTHORIZED_401, parser.parseToString(apiException));
         }
     }
 

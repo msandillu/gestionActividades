@@ -14,16 +14,15 @@ import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
 
 public class TaskController {
 
-    TaskService taskService;
-    Parser parser;
-    Validator validator;
+    private final TaskService taskService;
+    private final Parser parser;
+    private final Validator validator;
 
     public TaskController(TaskService taskService, Parser parser, Validator validator) {
         this.parser = parser;
@@ -44,8 +43,8 @@ public class TaskController {
 
         if (!validationResult.isEmpty()) {
 
-            List<ApiException> exceptions = new ArrayList<ApiException>();
-            for (ConstraintViolation cv : validationResult){
+            List<ApiException> exceptions = new ArrayList<>();
+            for (ConstraintViolation cv : validationResult) {
                 ApiException apiException = new ApiException();
                 apiException.setDescription(cv.getMessage());
                 exceptions.add(apiException);
@@ -58,13 +57,17 @@ public class TaskController {
         response.status(HttpStatus.CREATED_201);
         Integer taskId = taskService.createTask(taskRequest);
         return parser.parseToString(taskService.findTask(taskId));
-    };
+    }
+
+    ;
 
     private String getTasks(Request request, Response response) throws IOException {
         response.type("application/json");
         response.status(HttpStatus.OK_200);
         return parser.parseToString(taskService.getTask());
-    };
+    }
+
+    ;
 
     private String getTasksById(Request request, Response response) throws IOException {
         response.type("application/json");
@@ -72,10 +75,10 @@ public class TaskController {
         Integer taskId = Integer.parseInt(request.params(":id"));
         TaskResponse taskResponse = null;
 
-        if (taskId != null){
+        if (taskId != null) {
             taskResponse = taskService.findTask(taskId);
         }
-        if (taskResponse == null){
+        if (taskResponse == null) {
             response.status(HttpStatus.NOT_FOUND_404);
             ApiException apiException = new ApiException();
             apiException.setDescription("Not found the Task");
@@ -84,7 +87,9 @@ public class TaskController {
 
         response.status(HttpStatus.OK_200);
         return parser.parseToString(taskResponse);
-    };
+    }
+
+    ;
 
    /* get("/tasks/:id", (request, response) -> {
         response.type("application/json");
