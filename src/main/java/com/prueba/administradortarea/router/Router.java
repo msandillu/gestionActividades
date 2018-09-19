@@ -2,6 +2,7 @@ package com.prueba.administradortarea.router;
 
 
 import com.prueba.administradortarea.controllers.TaskController;
+import com.prueba.administradortarea.user.api.AuthenticationHandler;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -13,16 +14,20 @@ public class Router implements SparkApplication {
     private static final String springConfigPath = "spring/application-config.xml";
     private final TaskController taskController;
     private final ApplicationContext context;
+    private final AuthenticationHandler authenticationHandler;
 
     public Router() {
         context = new ClassPathXmlApplicationContext(springConfigPath);
         taskController = context.getBean("taskController", TaskController.class);
+        authenticationHandler = context.getBean("authenticationHandler", AuthenticationHandler.class);
     }
 
     @Override
     public void init() {
 
         String scope = getScope();
+
+        Spark.before(authenticationHandler::validate);
 
         Spark.path("/api", () -> {
             Spark.post("/tasks", taskController.postTasks);
