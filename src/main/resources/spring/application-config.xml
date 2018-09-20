@@ -32,6 +32,8 @@
         <constructor-arg ref="taskDAO"/>
     </bean>
 
+    <bean id="userService" class="com.prueba.administradortarea.services.UserServiceImpl"/>
+
     <!-- Repositories -->
    <bean id="taskDAO" class="com.prueba.administradortarea.repositories.TaskRepositoryImpl">
         <constructor-arg name="sessionFactory" ref="hibernate3AnnotatedSessionFactory"/>
@@ -85,6 +87,12 @@
         <property name="url" value="jdbc:h2:/home/msandillu/Documents/administrador-tareas/h2/test" />
         <property name="username" value="sa" />
         <property name="password" value="sa" />
+    </bean>
+
+    <!-- Authentication Handler-->
+    <bean id="authenticationHandler" class="com.prueba.administradortarea.user.api.AuthenticationHandlerImpl">
+        <constructor-arg ref="userService"/>
+        <constructor-arg ref="jsonParser"/>
     </bean>
 
 </beans>
