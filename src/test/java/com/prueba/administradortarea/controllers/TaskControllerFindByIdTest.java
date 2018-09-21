@@ -1,6 +1,5 @@
 package com.prueba.administradortarea.controllers;
 
-import com.prueba.administradortarea.models.request.TaskRequest;
 import com.prueba.administradortarea.models.response.TaskResponse;
 import com.prueba.administradortarea.parsers.Parser;
 import com.prueba.administradortarea.services.TaskService;
@@ -21,7 +20,6 @@ public class TaskControllerFindByIdTest {
     private Request request;
     private Response response;
     private TaskResponse taskResponse;
-    private TaskRequest taskRequest;
     private Validator validator;
 
     private final String parsedResponse = "parsedCreatedTaskResponse";
@@ -37,8 +35,7 @@ public class TaskControllerFindByIdTest {
 
         request = mock(Request.class);
         response = mock(Response.class);
-        taskResponse = mock(TaskResponse.class);
-        taskRequest = mock(TaskRequest.class);
+        taskResponse = new TaskResponse();
     }
 
     @Test
@@ -56,10 +53,10 @@ public class TaskControllerFindByIdTest {
     void shouldReturnNotFoundResponseWhenTaskNotExist() throws Exception {
 
         when(request.params(":id")).thenReturn("99");
+        when(parser.parseToInteger(anyString())).thenReturn(99);
         when(taskService.findTask(anyInt())).thenReturn(null);
 
         taskController.getTasksById.handle(request, response);
-        when(parser.parseToString(taskResponse)).thenReturn(parsedResponse);
 
         verify(response, times(1)).status(HttpStatus.NOT_FOUND_404);
     }
@@ -70,7 +67,6 @@ public class TaskControllerFindByIdTest {
         setupFindByIdTaskTestFail();
 
         taskController.getTasksById.handle(request, response);
-        when(parser.parseToString(taskResponse)).thenReturn(parsedResponse);
 
         verify(response, times(1)).status(HttpStatus.BAD_REQUEST_400);
     }
@@ -81,9 +77,8 @@ public class TaskControllerFindByIdTest {
         setupFindByIdTaskTestSuccess();
 
         taskController.getTasksById.handle(request, response);
-        when(parser.parseToString(taskResponse)).thenReturn(parsedResponse);
 
-        verify(taskService, times(1)).findTask(1);
+        verify(taskService, times(1)).findTask(anyInt());
     }
 
     @Test
@@ -92,7 +87,6 @@ public class TaskControllerFindByIdTest {
         setupFindByIdTaskTestFail();
 
         taskController.getTasksById.handle(request, response);
-        when(parser.parseToString(taskResponse)).thenReturn(parsedResponse);
 
         verify(taskService, never()).findTask(anyInt());
     }
