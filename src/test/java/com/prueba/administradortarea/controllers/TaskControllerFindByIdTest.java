@@ -23,6 +23,7 @@ public class TaskControllerFindByIdTest {
     private Validator validator;
 
     private final String parsedResponse = "parsedCreatedTaskResponse";
+    private final Integer idTaskValue = 1;
 
     @BeforeEach
     void setup(){
@@ -47,6 +48,7 @@ public class TaskControllerFindByIdTest {
         when(parser.parseToString(taskResponse)).thenReturn(parsedResponse);
 
         verify(response, times(1)).status(HttpStatus.OK_200);
+        verify(parser, times(1)).parseToString(taskResponse);
     }
 
     @Test
@@ -93,7 +95,7 @@ public class TaskControllerFindByIdTest {
 
     private void setupFindByIdTaskTestSuccess(){
         when(request.params(":id")).thenReturn("1");
-        when(parser.parseToInteger(anyString())).thenReturn(1);
+        when(parser.parseToInteger(anyString())).thenReturn(idTaskValue);
         when(taskService.findTask(anyInt())).thenReturn(taskResponse);
     }
 
