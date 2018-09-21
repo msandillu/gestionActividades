@@ -17,14 +17,14 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public Integer createTask(TaskRequest taskRequest) {
+    public TaskResponse createTask(TaskRequest taskRequest) {
         Task task = new Task();
         task.setName(taskRequest.getName());
         task.setDescription(taskRequest.getDescription());
         task.setCreationUser(null);
         task.setCreationDate(new Date());
         task = taskRepository.add(task);
-        return task.getId();
+        return findTask(task.getId());
     }
 
     @Override

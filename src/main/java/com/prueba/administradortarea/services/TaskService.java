@@ -8,7 +8,7 @@ import java.util.Collection;
 
 public interface TaskService{
 
-    public Integer createTask(TaskRequest taskRequest);
+    public TaskResponse createTask(TaskRequest taskRequest);
 
     public Collection<TaskResponse> getTask();
 
