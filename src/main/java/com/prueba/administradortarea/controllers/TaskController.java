@@ -39,6 +39,7 @@ public class TaskController {
         response.type("application/json");
 
         TaskRequest taskRequest = parser.parseToObject(request.body(), TaskRequest.class);
+
         Set<ConstraintViolation<TaskRequest>> validationResult = validator.validate(taskRequest);
 
         if (!validationResult.isEmpty()) {

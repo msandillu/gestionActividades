@@ -60,3 +60,5 @@ target/classes/com/prueba/administradortarea/services/UserServiceImpl\.class
 target/classes/com/prueba/administradortarea/user/api/AuthenticationHandler\.class
 
 target/classes/com/prueba/administradortarea/user/api/AuthenticationHandlerImpl\.class
+
+target/test-classes/com/prueba/administradortarea/controllers/TaskControllerCreateTest\.class
