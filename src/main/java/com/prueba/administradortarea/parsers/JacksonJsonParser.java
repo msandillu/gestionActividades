@@ -24,4 +24,15 @@ public class JacksonJsonParser implements Parser {
         return objectMapper.writeValueAsString(o);
     }
 
+    @Override
+    public Integer parseToInteger(String content) {
+        Integer value;
+        try{
+            value = Integer.parseInt(content);
+        } catch(NumberFormatException exception){
+            value = null;
+        }
+        return value;
+    }
+
 }

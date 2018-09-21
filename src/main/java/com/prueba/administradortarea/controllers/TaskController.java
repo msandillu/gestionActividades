@@ -73,11 +73,16 @@ public class TaskController {
     private String getTasksById(Request request, Response response) throws IOException {
         response.type("application/json");
 
-        Integer taskId = Integer.parseInt(request.params(":id"));
+        Integer taskId = parser.parseToInteger(request.params(":id"));
         TaskResponse taskResponse = null;
 
         if (taskId != null) {
             taskResponse = taskService.findTask(taskId);
+        } else{
+            response.status(HttpStatus.BAD_REQUEST_400);
+            ApiException apiException = new ApiException();
+            apiException.setDescription("The request is incorrect");
+            return parser.parseToString(apiException);
         }
         if (taskResponse == null) {
             response.status(HttpStatus.NOT_FOUND_404);
