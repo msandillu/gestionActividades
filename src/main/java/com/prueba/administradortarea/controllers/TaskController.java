@@ -40,10 +40,12 @@ public class TaskController {
 
         TaskRequest taskRequest = parser.parseToObject(request.body(), TaskRequest.class);
 
-        if (!validator.validate(taskRequest).isEmpty()) {
+        Set<ConstraintViolation<TaskRequest>> validationResult = validator.validate(taskRequest);
+
+        if (!validationResult.isEmpty()) {
 
             List<ApiException> exceptions = new ArrayList<>();
-            for (ConstraintViolation cv : validator.validate(taskRequest)) {
+            for (ConstraintViolation cv : validationResult) {
                 ApiException apiException = new ApiException();
                 apiException.setDescription(cv.getMessage());
                 exceptions.add(apiException);
@@ -54,7 +56,8 @@ public class TaskController {
         }
 
         response.status(HttpStatus.CREATED_201);
-        return parser.parseToString(taskService.createTask(taskRequest));
+        Integer taskId = taskService.createTask(taskRequest);
+        return parser.parseToString(taskService.findTask(taskId));
     }
 
     ;

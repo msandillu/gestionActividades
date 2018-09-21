@@ -40,33 +40,23 @@ public class TaskControllerCreateTest {
 
         request = mock(Request.class);
         response = mock(Response.class);
+
+        when(request.body()).thenReturn("");
     }
 
     @Test
     public void createTaskShouldReturnCreatedRequestWhenValidatorIsOk() throws Exception {
-        taskRequest = mock(TaskRequest.class);
-
-        taskResponse = mock(TaskResponse.class);
-        taskResponse.setId(1234);
-
-        String parsedResponse = "parsedCreatedTaskResponse";
-
-        when(taskService.createTask(any(TaskRequest.class))).thenReturn(taskResponse);
-        when(parser.parseToString(any())).thenReturn(parsedResponse);
-
-        final String errorMessage = "error message";
-        final String propertyName = "prop name";
 
         Set<ConstraintViolation<TaskRequest>> errors = new HashSet<>();
-        ConstraintViolation error = mock(ConstraintViolation.class);
-        Path path = mock(Path.class);
-        when(path.toString()).thenReturn(propertyName);
-        when(error.getPropertyPath()).thenReturn(path);
-        when(error.getMessage()).thenReturn(errorMessage);
-        errors.add(error);
 
-        Validator validator = mock(Validator.class);
-        when(validator.validate(any(TaskRequest.class))).thenReturn(errors);
+        taskRequest = new TaskRequest();
+        when(parser.parseToObject(anyString(), eq(TaskRequest.class))).thenReturn(taskRequest);
+        when(validator.validate(taskRequest)).thenReturn(errors);
+
+
+        String parsedResponse = "parsedCreatedTaskResponse";
+        when(taskService.createTask(any(TaskRequest.class))).thenReturn(1);
+        when(parser.parseToString(any())).thenReturn(parsedResponse);
 
         taskController.postTasks.handle(request, response);
 
@@ -87,8 +77,8 @@ public class TaskControllerCreateTest {
         errors.add(error);
 
 
-        taskRequest = mock(TaskRequest.class);
-        taskRequest.setName("skdhfjksdhfkjkjhkjhkjhkhkjhkjhsdkfjhsgdfugweyegrywejfgjsdgfjhsghjfgerhjfgjrwghjfgashjfs");
+        taskRequest = new TaskRequest();
+        when(parser.parseToObject(anyString(), eq(TaskRequest.class))).thenReturn(taskRequest);
         when(validator.validate(taskRequest)).thenReturn(errors);
 
         taskController.postTasks.handle(request, response);
