@@ -11,4 +11,6 @@ public interface Parser {
 
     String parseToString(Object o) throws JsonProcessingException;
 
+    Integer parseToInteger(String content);
+
 }
