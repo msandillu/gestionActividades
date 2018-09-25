@@ -2,8 +2,10 @@ package com.prueba.administradortarea.parsers;
 
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import jdk.nashorn.internal.runtime.ParserException;
 
 import java.io.IOException;
+import java.util.List;
 
 public interface Parser {
 
@@ -12,5 +14,7 @@ public interface Parser {
     String parseToString(Object o) throws JsonProcessingException;
 
     Integer parseToInteger(String content);
+
+    <T> List<T> parseToListObject(String toParse, Class<T> type) throws ParserException;
 
 }

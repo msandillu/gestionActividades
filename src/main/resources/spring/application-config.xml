@@ -6,6 +6,9 @@
 
     <context:component-scan base-package="com.prueba.administradortarea"/>
 
+    <context:property-placeholder location="classpath:application.properties"
+                                  ignore-unresolvable="true" ignore-resource-not-found="true"/>
+
     <!-- Factories -->
     <bean id="objectMapper" class="com.fasterxml.jackson.databind.ObjectMapper"/>
 
@@ -32,7 +35,9 @@
         <constructor-arg ref="taskDAO"/>
     </bean>
 
-    <bean id="userService" class="com.prueba.administradortarea.services.UserServiceImpl"/>
+    <bean id="userService" class="com.prueba.administradortarea.services.UserServiceImpl">
+        <constructor-arg ref="apiUser"/>
+    </bean>
 
     <!-- Repositories -->
    <bean id="taskDAO" class="com.prueba.administradortarea.repositories.TaskRepositoryImpl">
@@ -94,5 +99,28 @@
         <constructor-arg ref="userService"/>
         <constructor-arg ref="jsonParser"/>
     </bean>
+
+    <!-- API User-->
+    <bean id="apiUser" class="com.prueba.administradortarea.user.api.external.ApiUserImpl">
+        <constructor-arg value="${apiUser.login.url}"/>
+        <constructor-arg value="${apiUser.login.userName}"/>
+        <constructor-arg value="${apiUser.login.password}"/>
+        <constructor-arg ref="CloseableHttpClient"/>
+        <constructor-arg ref="httpHelper"/>
+        <constructor-arg ref="jsonParser"/>
+    </bean>
+
+    <!-- Http client -->
+    <bean id="requestConfigBuilder" class="org.apache.http.client.config.RequestConfig"
+          factory-method="custom">
+    </bean>
+    <bean id="requestConfig" factory-bean="requestConfigBuilder" factory-method="build"/>
+    <bean id="httpClientBuilder" class="org.apache.http.impl.client.HttpClientBuilder"
+          factory-method="create">
+        <property name="defaultRequestConfig" ref="requestConfig"/>
+    </bean>
+    <bean id="CloseableHttpClient" factory-bean="httpClientBuilder" factory-method="build"/>
+    <bean id="httpHelper" class="com.prueba.administradortarea.helper.HttpHelperImpl"/>
+
 
 </beans>

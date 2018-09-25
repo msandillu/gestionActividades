@@ -21,7 +21,7 @@ public class TaskServiceImpl implements TaskService {
         Task task = new Task();
         task.setName(taskRequest.getName());
         task.setDescription(taskRequest.getDescription());
-        task.setCreationUser(null);
+        task.setCreationUser(taskRequest.getIdUser());
         task.setCreationDate(new Date());
         task = taskRepository.add(task);
         return task.getId();

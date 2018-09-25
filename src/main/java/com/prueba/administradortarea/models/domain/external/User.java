@@ -1,4 +1,4 @@
-package com.prueba.administradortarea.models.domain;
+package com.prueba.administradortarea.models.domain.external;
 
 import java.util.Date;
 
@@ -8,18 +8,7 @@ public class User {
     private String firstName;
     private String lastName;
     private Date birthDate;
-    private String cityName;
-
-    public User(){
-    }
-
-    public User(Integer id, String firstName, String lastName, Date birthDate, String cityName) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.birthDate = birthDate;
-        this.cityName = cityName;
-    }
+    private City city;
 
 
     public Integer getId() {
@@ -54,14 +43,12 @@ public class User {
         this.birthDate = birthDate;
     }
 
-    public String getCityName() {
-        return cityName;
+    public City getCity() {
+        return city;
     }
 
-    public void setCityName(String cityName) {
-        this.cityName = cityName;
+    public void setCity(City city) {
+        this.city = city;
     }
-
-
 
 }

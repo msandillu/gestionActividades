@@ -39,6 +39,7 @@ public class TaskController {
         response.type("application/json");
 
         TaskRequest taskRequest = parser.parseToObject(request.body(), TaskRequest.class);
+        taskRequest.setIdUser(Integer.parseInt(request.headers("X-Caller-Id")));
 
         Set<ConstraintViolation<TaskRequest>> validationResult = validator.validate(taskRequest);
 

@@ -22,6 +22,9 @@ public class TaskRequest {
     @Size(max=100, min=1, message = "The length of the description is too long")
     private String description;
 
+    @JsonProperty("iduser")
+    private Integer idUser;
+
     public String getName() {
         return name;
     }
@@ -38,5 +41,12 @@ public class TaskRequest {
         this.description = description;
     }
 
+    public Integer getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(Integer idUser) {
+        this.idUser = idUser;
+    }
 
 }
