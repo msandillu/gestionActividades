@@ -23,7 +23,7 @@ public class AuthenticationHandlerImpl implements AuthenticationHandler {
     }
 
 
-    public void validate(Request request, Response response) throws IOException {
+    public Integer validate(Request request, Response response) throws IOException {
 
         //Reviso si el Header viene el X-Caller-Id
         String userId = request.headers("X-Caller-Id");
@@ -51,6 +51,8 @@ public class AuthenticationHandlerImpl implements AuthenticationHandler {
             apiException.setDescription("Not found the User");
             Spark.halt(HttpStatus.UNAUTHORIZED_401, parser.parseToString(apiException));
         }
+
+        return userIdInt;
     }
 
 }

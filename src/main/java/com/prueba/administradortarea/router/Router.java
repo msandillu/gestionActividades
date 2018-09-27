@@ -27,7 +27,10 @@ public class Router implements SparkApplication {
 
         String scope = getScope();
 
-        Spark.before(authenticationHandler::validate);
+        Spark.before((request, response) -> {
+            Integer idUser = authenticationHandler.validate(request, response);
+            taskController.setUserAuthenticateId(idUser);
+        });
 
         Spark.path("/api", () -> {
             Spark.post("/tasks", taskController.postTasks);

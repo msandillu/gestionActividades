@@ -24,6 +24,8 @@ public class TaskController {
     private final Parser parser;
     private final Validator validator;
 
+    private Integer userAuthenticateId = null;
+
     public TaskController(TaskService taskService, Parser parser, Validator validator) {
         this.parser = parser;
         this.taskService = taskService;
@@ -39,7 +41,7 @@ public class TaskController {
         response.type("application/json");
 
         TaskRequest taskRequest = parser.parseToObject(request.body(), TaskRequest.class);
-        taskRequest.setIdUser(Integer.parseInt(request.headers("X-Caller-Id")));
+        taskRequest.setIdUser(getUserAuthenticateId());
 
         Set<ConstraintViolation<TaskRequest>> validationResult = validator.validate(taskRequest);
 
@@ -61,7 +63,6 @@ public class TaskController {
         return parser.parseToString(taskService.findTask(taskId));
     }
 
-    ;
 
     private String getTasks(Request request, Response response) throws IOException {
         response.type("application/json");
@@ -69,7 +70,6 @@ public class TaskController {
         return parser.parseToString(taskService.getTask());
     }
 
-    ;
 
     private String getTasksById(Request request, Response response) throws IOException {
         response.type("application/json");
@@ -96,7 +96,13 @@ public class TaskController {
         return parser.parseToString(taskResponse);
     }
 
-    ;
+    public Integer getUserAuthenticateId() {
+        return userAuthenticateId;
+    }
+
+    public void setUserAuthenticateId(Integer userAuthenticateId) {
+        this.userAuthenticateId = userAuthenticateId;
+    }
 
    /* get("/tasks/:id", (request, response) -> {
         response.type("application/json");

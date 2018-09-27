@@ -7,5 +7,5 @@ import java.io.IOException;
 
 public interface AuthenticationHandler {
 
-    void validate(Request request, Response response) throws IOException;
+    Integer validate(Request request, Response response) throws IOException;
 }
