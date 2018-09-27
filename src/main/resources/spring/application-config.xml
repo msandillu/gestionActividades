@@ -101,7 +101,7 @@
     </bean>
 
     <!-- API User-->
-    <bean id="apiUser" class="com.prueba.administradortarea.user.api.external.ApiUserImpl">
+    <bean id="apiUser" class="com.prueba.administradortarea.user.api.external.ApiUser">
         <constructor-arg value="${apiUser.login.url}"/>
         <constructor-arg value="${apiUser.login.userName}"/>
         <constructor-arg value="${apiUser.login.password}"/>
