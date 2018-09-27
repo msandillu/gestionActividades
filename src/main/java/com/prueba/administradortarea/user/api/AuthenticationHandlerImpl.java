@@ -9,6 +9,7 @@ import spark.Response;
 import spark.Spark;
 
 import java.io.IOException;
+import java.util.Map;
 
 
 public class AuthenticationHandlerImpl implements AuthenticationHandler {
@@ -22,7 +23,7 @@ public class AuthenticationHandlerImpl implements AuthenticationHandler {
     }
 
 
-    public void validate(Request request, Response response) throws IOException {
+    public Integer validate(Request request, Response response) throws IOException {
 
         //Reviso si el Header viene el X-Caller-Id
         String userId = request.headers("X-Caller-Id");
@@ -45,11 +46,13 @@ public class AuthenticationHandlerImpl implements AuthenticationHandler {
             existUser = userService.existUser(userIdInt);
         }
 
-        if (userId == null || !existUser) {
+        if (!existUser) {
             ApiException apiException = new ApiException();
             apiException.setDescription("Not found the User");
             Spark.halt(HttpStatus.UNAUTHORIZED_401, parser.parseToString(apiException));
         }
+
+        return userIdInt;
     }
 
 }

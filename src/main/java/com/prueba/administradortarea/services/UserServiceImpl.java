@@ -1,38 +1,26 @@
 package com.prueba.administradortarea.services;
 
-import com.prueba.administradortarea.models.domain.User;
+import com.prueba.administradortarea.models.domain.external.User;
+import com.prueba.administradortarea.user.api.external.ApiUser;
 
 import java.util.*;
 
 
 public class UserServiceImpl implements UserService {
 
-    //private TaskRepository taskRepository;
+    private ApiUser apiUser;
 
-    //TODO: Inyectar al API REST de user
-    /*public ExternalUserServiceImpl(TaskRepository taskRepository) {
-        this.taskRepository = taskRepository;
-    }*/
-
+    public UserServiceImpl(ApiUser apiUser) {
+        this.apiUser = apiUser;
+    }
 
     @Override
     public List<User> getUsers() {
-        List<User> userList = new ArrayList<>();
-        return userList;
+        return apiUser.getAllUsers();
     }
 
     private User findUser(Integer idUser) {
-        //TODO: Usar API REST de User
-        User user = null;
-        if (idUser == 1) {
-            user = new User();
-            user.setId(1);
-            user.setFirstName("Maxi");
-            user.setLastName("Sandillu");
-            user.setBirthDate(new Date());
-            user.setCityName("Rafaela");
-        }
-        return user;
+        return apiUser.getUserById(idUser);
     }
 
     @Override

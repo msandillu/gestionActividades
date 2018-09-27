@@ -51,6 +51,8 @@ target/classes/com/prueba/administradortarea/specifications/Specification\.class
 
 \.idea/
 
+\.target/
+
 target/classes/com/prueba/administradortarea/models/domain/User\.class
 
 target/classes/com/prueba/administradortarea/services/UserService\.class
@@ -64,3 +66,21 @@ target/classes/com/prueba/administradortarea/user/api/AuthenticationHandlerImpl\
 target/test-classes/com/prueba/administradortarea/controllers/TaskControllerCreateTest\.class
 
 target/test-classes/com/prueba/administradortarea/controllers/TaskControllerFindByIdTest\.class
+
+target/classes/com/prueba/administradortarea/helper/HttpHelper\.class
+
+target/classes/com/prueba/administradortarea/helper/HttpHelperImpl\.class
+
+target/classes/com/prueba/administradortarea/models/domain/external/City\.class
+
+target/classes/com/prueba/administradortarea/models/domain/external/TokenResponse\.class
+
+target/classes/com/prueba/administradortarea/models/domain/external/User\.class
+
+target/classes/com/prueba/administradortarea/user/api/external/ApiUser\.class
+
+target/classes/com/prueba/administradortarea/user/api/external/ApiUserImpl\.class
+
+target/test-classes/com/prueba/administradortarea/user/api/ApiUserTest\.class
+
+target/test-classes/com/prueba/administradortarea/user/api/ApiUserGetByIdTest\.class
