@@ -103,15 +103,14 @@ public class TaskController {
         Integer taskId = parser.parseToInteger(request.params(":id"));
         Boolean deleted;
 
-        if (taskId != null) {
-            deleted = taskService.deleteTask(taskId);
-        } else{
+        if (taskId == null) {
             response.status(HttpStatus.BAD_REQUEST_400);
             ApiException apiException = new ApiException();
             apiException.setDescription("The request is incorrect");
             return parser.parseToString(apiException);
         }
-        if (!deleted) {
+
+        if (!taskService.deleteTask(taskId)) {
             response.status(HttpStatus.NOT_FOUND_404);
             ApiException apiException = new ApiException();
             apiException.setDescription("Not found the Task");
@@ -119,7 +118,7 @@ public class TaskController {
         }
 
         response.status(HttpStatus.OK_200);
-        return parser.parseToString("");
+        return "";
     }
 
     public Integer getUserAuthenticateId() {

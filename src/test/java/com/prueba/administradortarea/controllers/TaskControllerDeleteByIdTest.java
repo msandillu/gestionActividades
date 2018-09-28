@@ -78,7 +78,7 @@ public class TaskControllerDeleteByIdTest {
 
         taskController.deleteTasksById.handle(request, response);
 
-        verify(taskService, times(1)).deleteTask(anyInt());
+        verify(taskService, times(1)).deleteTask(idTaskValue);
     }
 
     @Test
