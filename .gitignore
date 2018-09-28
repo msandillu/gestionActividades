@@ -84,3 +84,5 @@ target/classes/com/prueba/administradortarea/user/api/external/ApiUserImpl\.clas
 target/test-classes/com/prueba/administradortarea/user/api/ApiUserTest\.class
 
 target/test-classes/com/prueba/administradortarea/user/api/ApiUserGetByIdTest\.class
+
+target/test-classes/com/prueba/administradortarea/controllers/TaskControllerDeleteByIdTest\.class

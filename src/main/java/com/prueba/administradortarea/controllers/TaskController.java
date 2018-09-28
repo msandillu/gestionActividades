@@ -35,6 +35,7 @@ public class TaskController {
     public Route postTasks = this::postTasks;
     public Route getTasks = this::getTasks;
     public Route getTasksById = this::getTasksById;
+    public Route deleteTasksById = this::deleteById;
 
 
     private String postTasks(Request request, Response response) throws IOException {
@@ -94,6 +95,31 @@ public class TaskController {
 
         response.status(HttpStatus.OK_200);
         return parser.parseToString(taskResponse);
+    }
+
+    private String deleteById(Request request, Response response) throws IOException{
+        response.type("application/json");
+
+        Integer taskId = parser.parseToInteger(request.params(":id"));
+        Boolean deleted;
+
+        if (taskId != null) {
+            deleted = taskService.deleteTask(taskId);
+        } else{
+            response.status(HttpStatus.BAD_REQUEST_400);
+            ApiException apiException = new ApiException();
+            apiException.setDescription("The request is incorrect");
+            return parser.parseToString(apiException);
+        }
+        if (!deleted) {
+            response.status(HttpStatus.NOT_FOUND_404);
+            ApiException apiException = new ApiException();
+            apiException.setDescription("Not found the Task");
+            return parser.parseToString(apiException);
+        }
+
+        response.status(HttpStatus.OK_200);
+        return parser.parseToString("");
     }
 
     public Integer getUserAuthenticateId() {

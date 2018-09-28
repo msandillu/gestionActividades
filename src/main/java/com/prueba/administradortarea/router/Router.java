@@ -43,6 +43,10 @@ public class Router implements SparkApplication {
         Spark.path("/api", () -> {
             Spark.get("/tasks/:id", taskController.getTasksById);
         });
+
+        Spark.path("/api", () -> {
+            Spark.delete("/tasks/:id", taskController.deleteTasksById);
+        });
     }
 
     @Override

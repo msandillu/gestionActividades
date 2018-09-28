@@ -47,6 +47,16 @@ public class TaskServiceImpl implements TaskService {
         }
     }
 
+    @Override
+    public Boolean deleteTask(Integer id) {
+        Task task = taskRepository.findById(id);
+        if (task != null){
+            return taskRepository.remove(task);
+        } else{
+            return false;
+        }
+    }
+
     private TaskResponse getTaskResponse(Task task){
         TaskResponse taskResponse = new TaskResponse();
         taskResponse.setId(task.getId());
@@ -56,6 +66,8 @@ public class TaskServiceImpl implements TaskService {
         taskResponse.setCreationDate(task.getCreationDate());
         return taskResponse;
     }
+
+
 
     /*
 
