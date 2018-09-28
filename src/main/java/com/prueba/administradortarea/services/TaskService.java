@@ -8,11 +8,13 @@ import java.util.Collection;
 
 public interface TaskService{
 
-    public Integer createTask(TaskRequest taskRequest);
+    Integer createTask(TaskRequest taskRequest);
 
-    public Collection<TaskResponse> getTask();
+    Collection<TaskResponse> getTask();
 
-    public TaskResponse findTask(Integer id);
+    TaskResponse findTask(Integer id);
+
+    Boolean deleteTask(Integer id);
 
    /*
     public Task editTask(Task forEdit);

@@ -43,13 +43,14 @@ public class TaskRepositoryImpl implements TaskRepository {
     }
 
     @Override
-    public void remove(Task task) {
+    public Boolean remove(Task task) {
         Session session = null;
         Transaction tx = null;
         try {
             session = getSessionFactory().openSession();
             tx = session.beginTransaction();
             session.delete(task);
+            return true;
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -60,6 +61,7 @@ public class TaskRepositoryImpl implements TaskRepository {
                 session.close();
             }
         }
+        return false;
     }
 
     @Override
