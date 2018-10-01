@@ -16,8 +16,6 @@ public interface TaskService{
 
     Boolean deleteTask(Integer id);
 
-   /*
-    public Task editTask(Task forEdit);
+    TaskResponse editTask(Integer idTask, TaskRequest taskRequest);
 
-    public void deleteTask(Integer id);*/
 }
