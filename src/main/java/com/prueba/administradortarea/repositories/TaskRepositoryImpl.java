@@ -43,6 +43,28 @@ public class TaskRepositoryImpl implements TaskRepository {
     }
 
     @Override
+    public Task update(Task task) {
+        Session session = null;
+        Transaction tx = null;
+        try {
+            session = getSessionFactory().openSession();
+            tx = session.beginTransaction();
+            session.update(task);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (tx != null && tx.isActive()){
+                tx.commit();
+            }
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+        Hibernate.initialize(task);
+        return task;
+    }
+
+    @Override
     public Boolean remove(Task task) {
         Session session = null;
         Transaction tx = null;

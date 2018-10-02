@@ -57,6 +57,21 @@ public class TaskServiceImpl implements TaskService {
         }
     }
 
+    @Override
+    public TaskResponse editTask(Integer idTask, TaskRequest taskRequest) {
+
+        Task task = taskRepository.findById(idTask);
+
+        if (taskRequest.getName() != null) {
+            task.setName(taskRequest.getName());
+        }
+        if (taskRequest.getDescription() != null){
+            task.setDescription(taskRequest.getDescription());
+        }
+
+        return getTaskResponse(taskRepository.update(task));
+    }
+
     private TaskResponse getTaskResponse(Task task){
         TaskResponse taskResponse = new TaskResponse();
         taskResponse.setId(task.getId());
@@ -66,39 +81,4 @@ public class TaskServiceImpl implements TaskService {
         taskResponse.setCreationDate(task.getCreationDate());
         return taskResponse;
     }
-
-
-
-    /*
-
-    @Override
-    public Task editTask(Task forEdit) {
-
-        Task toEdit = taskMap.get(forEdit.getId());
-
-
-        if (forEdit.getName() != null) {
-            toEdit.setName(forEdit.getName());
-        }
-        if (forEdit.getDescription() != null){
-            toEdit.setDescription(forEdit.getDescription());
-        }
-        if (forEdit.getCreationUser() != null){
-            toEdit.setCreationUser(forEdit.getCreationUser());
-        }
-        if (forEdit.getCreationDate() != null){
-            toEdit.setCreationDate(forEdit.getCreationDate());
-        }
-        if (forEdit.getId() != null) {
-            toEdit.setId(forEdit.getId());
-        }
-
-        return toEdit;
-
-    }
-
-    @Override
-    public void deleteTask(Integer id) {
-        taskMap.remove(id);
-    }*/
 }

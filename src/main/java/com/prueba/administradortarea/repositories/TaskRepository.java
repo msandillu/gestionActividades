@@ -10,7 +10,6 @@ public interface TaskRepository {
     Boolean remove(Task task);
     Task findById(Integer taskId);
     List<Task> findAll();
-    /*void removeById(Long id, Class tClass);
-    void update(Object object);*/
+    Task update(Task task);
 
 }

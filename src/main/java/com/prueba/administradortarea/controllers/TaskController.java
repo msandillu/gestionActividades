@@ -36,6 +36,7 @@ public class TaskController {
     public Route getTasks = this::getTasks;
     public Route getTasksById = this::getTasksById;
     public Route deleteTasksById = this::deleteById;
+    public Route editTasksById = this::editTask;
 
 
     private String postTasks(Request request, Response response) throws IOException {
@@ -121,6 +122,25 @@ public class TaskController {
         return "";
     }
 
+    private String editTask(Request request, Response response) throws IOException{
+        response.type("application/json");
+
+        Integer taskId = parser.parseToInteger(request.params(":id"));
+        TaskRequest taskRequest = parser.parseToObject(request.body(), TaskRequest.class);
+
+        if (taskId == null || taskRequest == null){
+            response.status(HttpStatus.BAD_REQUEST_400);
+            ApiException apiException = new ApiException();
+            apiException.setDescription("The request is incorrect");
+            return parser.parseToString(apiException);
+        }
+
+        TaskResponse taskResponse = taskService.editTask(taskId, taskRequest);
+        response.status(HttpStatus.OK_200);
+
+        return parser.parseToString(taskResponse);
+    }
+
     public Integer getUserAuthenticateId() {
         return userAuthenticateId;
     }
@@ -128,36 +148,5 @@ public class TaskController {
     public void setUserAuthenticateId(Integer userAuthenticateId) {
         this.userAuthenticateId = userAuthenticateId;
     }
-
-   /* get("/tasks/:id", (request, response) -> {
-        response.type("application/json");
-
-        response.status(HttpStatus.OK_200);
-
-        return new ObjectMapper().writeValueAsString(taskService.getTask(Integer.parseInt(request.params(":id"))));
-    });
-
-    put("/tasks/:id", (request, response) -> {
-        response.type("application/json");
-
-        Task toEdit = new Gson().fromJson(request.body(), Task.class);
-        Task editedTask = taskService.editTask(toEdit);
-
-        if (editedTask != null) {
-            response.status(HttpStatus.OK_200);
-            return new ObjectMapper().writeValueAsString(editedTask);
-        } else {
-            response.status(HttpStatus.NOT_FOUND_404);
-            return new ObjectMapper().writeValueAsString(HttpStatus.NOT_FOUND_404);
-        }
-    });
-
-    delete("/tasks/:id", (request, response) -> {
-        response.type("application/json");
-
-        taskService.deleteTask(Integer.parseInt(request.params(":id")));
-        return new ObjectMapper().writeValueAsString(HttpStatus.OK_200);
-    });*/
-
 
 }
